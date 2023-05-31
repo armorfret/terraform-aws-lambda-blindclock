@@ -25,8 +25,7 @@ module "apigw" {
   hostname = var.hostname
 
   binary_media_types = [
-    "image/x-icon",
-    "font/ttf",
+    "*/*",
   ]
 }
 
