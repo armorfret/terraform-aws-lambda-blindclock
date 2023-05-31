@@ -9,7 +9,7 @@ terraform {
 
 module "apigw" {
   source  = "armorfret/apigw-lambda/aws"
-  version = "0.4.3"
+  version = "0.5.0"
 
   source_bucket  = var.lambda_bucket
   source_version = var.lambda_version
@@ -23,6 +23,11 @@ module "apigw" {
   access_policy_document = data.aws_iam_policy_document.lambda_perms.json
 
   hostname = var.hostname
+
+  binary_media_types = [
+    "image/x-icon",
+    "font/ttf",
+  ]
 }
 
 module "publish_user" {
